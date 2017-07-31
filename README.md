@@ -6,6 +6,6 @@
 - Run collectstatic: ```python manage.py collectstatic```
 - Run the server: ```python manage.py runserver```
 
-- Open the url of the app: ```http://localhost:8000`
+- Open the url of the app: ```http://localhost:8000```
 - Register a new account, and insert your property. 
 
