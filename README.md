@@ -6,7 +6,6 @@ To run the project you will need:
 - Rename the .env.initial to .env
 - Install dependencies ```pip install -r requirements.txt```
 - Run migrations: ```python manage.py migrate```
-- Create 2 directories in project path: media and CACHE.
 - Run collectstatic: ```python manage.py collectstatic```
 - Run the server: ```python manage.py runserver```
 - Open the url of the app: ```http://localhost:8000```
@@ -25,7 +24,6 @@ I will not provide any info about installing these tools. There are plenty of th
 
 To run the container:
 ------------------------------
-- Create media and CACHE directory in project root. 
 - In the project path run the command ```docker-compose build``` to build your container.
 - Run ```docker-compose up``` to run the container. If you want it running on background you can run the command ```docker-compose up -d```
 
