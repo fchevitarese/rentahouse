@@ -1,0 +1,37 @@
+{% extends "base/base.html" %}
+{% load static i18n %}
+{% block extra_head %}
+    <link href="{% static "site/css/login.css" %}" rel="stylesheet">
+{% endblock extra_head%}
+
+{% block header %} {% endblock header %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>{% trans "Your username and password didn't match. Please try again." %}</p>
+{% endif %}
+
+
+ <div class="card card-container">
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>{% trans "Your account doesn't have access to this page. To proceed,
+        please login with an account that has access." %}</p>
+        {% else %}
+        <p align="center">{% trans 'Please login to see this page.' %}</p>
+        {% endif %}
+    {% endif %}
+    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form method="post" action="{% url 'login' %}" class="form-signin">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{% trans 'Sign in' %}</button>
+    </form><!-- /form -->
+    <a href="{% url 'accounts:auth_password_reset' %}" class="forgot-password">
+        {% trans 'Forgot the password?' %}
+    </a>
+</div><!-- /card-container -->
+{% endblock content %}

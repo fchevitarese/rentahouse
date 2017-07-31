@@ -1,0 +1,53 @@
+<div class="container well">
+    <div id="main_area">
+        <!-- Slider -->
+        <div class="row">
+            {% block thumbs %}
+            <div class="col-sm-6" id="slider-thumbs">
+                <!-- Bottom switcher of slider -->
+                <ul class="hide-bullets">
+                    {% for img in object.propertypics_set.all %}
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-{{ forloop.counter0 }}">
+                                <img src="/static/{{ img.thumbnail.url }}">
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endblock thumbs %}
+            <div class="col-sm-6">
+                <div class="col-xs-12" id="slider">
+                    <!-- Top part of the slider -->
+                    <div class="row">
+                        <div class="col-sm-12" id="carousel-bounding-box">
+                            <div class="carousel slide" id="myCarousel">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    {% for img in object.propertypics_set.all %}
+                                    {% if forloop.first %}
+                                        <div class="active item" data-slide-number="{{ forloop.counter0 }}">
+                                    {% else %}
+                                        <div class="item" data-slide-number="{{ forloop.counter0 }}">
+                                    {% endif %}
+                                        <img src="{{ img.get_image_url }}">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- Carousel nav -->
+                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/Slider-->
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,1 @@
+web: gunicorn rentahouse.wsgi --log-file -

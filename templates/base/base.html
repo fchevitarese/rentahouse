@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% load static i18n %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Rent a House</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "site/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static "site/css/2-col-portfolio.css" %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        {% block extra_head %} {% endblock extra_head %}
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">Rent a House</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'properties:my_props' %}">{% trans 'My properties' %}</a>
+                        {% endif %}
+                    </li>
+                    <li>
+                        <a href="{% url 'properties:create' %}">{% trans 'Add property' %}</a>
+                    </li>
+                </ul>
+                <div class="col-sm-3 col-md-3">
+                    <form class="navbar-form" role="search" action="{% url 'properties:search' %}"  method="get" accept-charset="utf-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="{% trans 'Search by address' %}" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if not user.is_authenticated %}
+                    <li><a href="{% url 'accounts:registration_register' %}"><span class="glyphicon glyphicon-user"></span> {% trans 'Sign Up' %}</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> {% trans 'Login' %}</a></li>
+                    {% else %}
+                        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> {% trans 'Logout' %}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Header -->
+        {% block header %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% trans 'Last inserted properties' %}</h1>
+            </div>
+        </div>
+        {% endblock header %}
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            {% block content %}
+                {% for prop in last_properties %}
+                    <div class="col-md-6 portfolio-item">
+                        <a href="{{ prop.get_absolute_url }}">
+                            {% include 'base/slider.html' with object=prop %}
+                        </a>
+                        <br />
+                        <h4>
+                            {{ prop.title }} {% trans 'at' %} {{ prop.created }}
+                        </h4>
+                        <p>{{ prop.description|linebreaks|truncatewords:50 }}</p>
+                        <a href="{{ prop.get_absolute_url }}" class="btn btn-primary">{% trans 'More details' %}</a>
+                    </div>
+                {% endfor %}
+            {% endblock content %}
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                {% include 'base/pagination.html' %}
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{% static "site/js/jquery.js" %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "site/js/bootstrap.min.js" %}"></script>
+
+
+    {% block extrajs %}
+
+    {% endblock extrajs %}
+
+</body>
+
+</html>

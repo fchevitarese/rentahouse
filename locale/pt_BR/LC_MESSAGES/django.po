@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <fchevitarese@gmail.com>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-31 15:00+0000\n"
+"PO-Revision-Date: 2017-07-31 14:08+0000\n"
+"Last-Translator: Fred Chevitarese <fchevitarese@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt-BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Full name"
+msgstr "Nome completo"
+
+msgid "Phone number"
+msgstr "Número do telefone"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Short title"
+msgstr "Breve descrição"
+
+msgid "City"
+msgstr "Cidade"
+
+msgid "Street"
+msgstr "Rua"
+
+msgid "Complement"
+msgstr "Complemento"
+
+msgid "Neighborhood"
+msgstr "Bairro"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "Rent value"
+msgstr "Valor do aluguel"
+
+msgid "Created at"
+msgstr "Criado em"
+
+msgid "Updated at"
+msgstr "Atualizado em"
+
+msgid "Property"
+msgstr "Propriedades"
+
+msgid "Properties"
+msgstr "Propriedades"
+
+msgid "Picture"
+msgstr "Foto"
+
+msgid "Add property"
+msgstr "Adicionar propriedade"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Property details"
+msgstr "Detalhes da propriedade"
+
+msgid "Details:"
+msgstr "Detalhes:"
+
+msgid "Address"
+msgstr "Endereço"
+
+msgid "Added at"
+msgstr "Adicionado em"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Edit property"
+msgstr "Editar propriedade"
+
+msgid "at"
+msgstr "em"
+
+msgid "More details"
+msgstr "Mais detalhes"
+
+msgid "Sorry, no properties found."
+msgstr "Desculpe, não encontramos nenhuma propriedade."
+
+msgid "All properties"
+msgstr "Todas as propriedades"
+
+msgid "My properties"
+msgstr "Minhas propriedades"
+
+msgid "Search result"
+msgstr "Resultado da busca"
+
+msgid "Search by address"
+msgstr "Busca por endereço"
+
+msgid "Sign Up"
+msgstr "Registrar"
+
+msgid "Login"
+msgstr "Entrar"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "Last inserted properties"
+msgstr "Últimas propriedades"
+
+msgid "previous"
+msgstr "anterior"
+
+msgid "Page"
+msgstr "Página"
+
+msgid "of"
+msgstr "de"
+
+msgid "next"
+msgstr "próxima"
+
+msgid "Your username and password didn't match. Please try again."
+msgstr "Seu usuário ou senha não conferem. Por favor tente novamente."
+
+msgid "Please login to see this page."
+msgstr "Efetue o login para ter acesso à esta página"
+
+msgid "Sign in"
+msgstr "Registrar"
+
+msgid "Forgot the password?"
+msgstr "Esqueci minha senha"
+
+msgid "Registration"
+msgstr "Cadastro"

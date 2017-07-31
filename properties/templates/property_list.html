@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+
+{% block header %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{ header_text }}</h1>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+{% for prop in object_list %}
+    <div class="col-md-6 portfolio-item">
+        <a href="{{ prop.get_absolute_url }}">
+            {% include 'base/slider.html' with object=prop %}
+        </a>
+        <br />
+        <h4>
+            {{ prop.title }} {% trans 'at' %} {{ prop.created }}
+        </h4>
+        <p>{{ prop.description|linebreaks|truncatewords:50 }}</p>
+        <a href="{{ prop.get_absolute_url }}" class="btn btn-primary">{% trans 'More details' %}</a>
+    </div>
+    {% empty %}
+    <div class="alert alert-warning" role="alert">{% trans 'Sorry, no properties found.' %}</div>
+{% endfor %}
+{% endblock content %}

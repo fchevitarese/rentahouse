@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block extra_head %}
+    <link href="{% static "site/css/galery.css" %}" rel="stylesheet">
+{% endblock extra_head %}
+
+{% block header %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{% trans 'Property details' %} - {{ object.title }}</h1>
+    </div>
+</div>
+{% endblock header %}
+
+{% block extrajs %}
+<script>
+      jQuery(document).ready(function($) {
+
+        $('#myCarousel').carousel({
+                interval: 5000
+        });
+
+        //Handles the carousel thumbnails
+        $('[id^=carousel-selector-]').click(function () {
+        var id_selector = $(this).attr("id");
+        try {
+            var id = /-(\d+)$/.exec(id_selector)[1];
+            jQuery('#myCarousel').carousel(parseInt(id));
+        } catch (e) {
+            console.log('Regex failed!', e);
+        }
+    });
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid.bs.carousel', function (e) {
+                 var id = $('.item.active').data('slide-number');
+                $('#carousel-text').html($('#slide-content-'+id).html());
+        });
+});
+</script>
+
+{% endblock extrajs %}
+
+{% block content  %}
+    {% include 'base/slider_with_thumbs.html' %}
+    <div class="panel panel-info" style="margin-top: 15px">
+        <div class="panel-heading">
+            <h3 class="panel-title">{% trans 'Details:' %}</h3>
+        </div>
+        <div class="panel-body">
+            <p><strong>{% trans 'Description' %}:</strong> {{ object.description }}</p>
+            <p><strong>{% trans 'City' %}: </strong>{{ object.city }}</p>
+            <p><strong>{% trans 'Address' %}: </strong>{{ object.street }} {{ object.complement }}</p>
+            <p><strong>{% trans 'Neighborhood' %}: {{ object.neighborhood }}</strong></p>
+            <p><strong>{% trans 'State' %}: </strong>{{ object.get_state_display }}</p>
+            <p><strong>{% trans 'Rent value' %}: </strong> {{ object.value }}</p>
+            <p><strong>{% trans 'Added at' %}: </strong>{{ object.created }}</p>
+        </div>
+    </div>
+    {% if user == object.user %}
+    <a href="{% url 'properties:edit' pk=object.pk %}" class="btn btn-primary">{% trans 'Edit' %}</a>
+    <a href="{% url 'properties:delete' pk=object.pk %}" class="btn btn-danger">{% trans 'Delete' %}</a>
+    {% endif %}
+{% endblock content  %}

@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load i18n bootstrap %}
+
+{% block header %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{% trans 'Confirm delete' %}</h1>
+    </div>
+</div>
+{% endblock header %}
+
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <p>{% trans 'Are you sure you want to delete' %} "{{ object }}"?</p>
+    <button type="submit" class="btn btn-danger">{% trans 'Confirm' %}</button>
+</form>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% load bootstrap i18n %}
+
+{% block header %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{% trans 'Add property' %}</h1>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="content well">
+    <form role="form" method="POST" action="{{ request.path }}" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.errors}}
+        {{ form|bootstrap }}
+        {{ formset.management_form }}
+        {% for form in formset %}
+            {{ form.media }}
+            {{ form|bootstrap }}
+        {% endfor %}
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
