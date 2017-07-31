@@ -5,7 +5,6 @@ ENV PYTHONBUFFERED 1
 
 RUN mkdir /code
 WORKDIR /code
-RUN mkdir media && mkdir CACHE
 
 ADD requirements.txt /code/
 

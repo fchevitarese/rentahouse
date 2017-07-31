@@ -25,6 +25,7 @@ I will not provide any info about installing these tools. There are plenty of th
 
 To run the container:
 ------------------------------
+- Create media and CACHE directory in project root. 
 - In the project path run the command ```docker-compose build``` to build your container.
 - Run ```docker-compose up``` to run the container. If you want it running on background you can run the command ```docker-compose up -d```
 
