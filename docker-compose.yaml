@@ -1,0 +1,31 @@
+version: '2'
+services:
+    web:
+        restart: always
+        build:
+            context: .
+        container_name: rentahouse
+        command: bash -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn rentahouse.wsgi:application -w 2 -b :8000"
+        volumes:
+            - .:/code
+        networks:
+            - rentahouse-network
+
+    nginx:
+        restart: always
+        build:
+            context: ./nginx
+        container_name: nginx_rentahouse
+        expose:
+            - '80'
+        ports:
+            - '80:80'
+            - '443:443'
+        networks:
+            - rentahouse-network
+        volumes_from:
+            - web
+
+networks:
+    rentahouse-network:
+        driver: bridge
