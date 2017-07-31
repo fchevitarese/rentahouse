@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-31 15:00+0000\n"
+"POT-Creation-Date: 2017-07-31 16:36+0000\n"
 "PO-Revision-Date: 2017-07-31 14:08+0000\n"
 "Last-Translator: Fred Chevitarese <fchevitarese@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,6 +64,15 @@ msgstr "Propriedades"
 msgid "Picture"
 msgstr "Foto"
 
+msgid "Confirm delete"
+msgstr "Confirmar exclusão"
+
+msgid "Are you sure you want to delete"
+msgstr "Tem certeza que deseja deletar"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
 msgid "Add property"
 msgstr "Adicionar propriedade"
 
@@ -108,6 +117,21 @@ msgstr "Minhas propriedades"
 
 msgid "Search result"
 msgstr "Resultado da busca"
+
+msgid "404 Not Found"
+msgstr "404 página não encontrada"
+
+msgid "Sorry, an error has occured, Requested page not found!"
+msgstr "Desculpe, a página requisitada não foi encontrada!"
+
+msgid "Take Me Home"
+msgstr "Página inicial"
+
+msgid "500 Server error"
+msgstr "500 erro no servidor"
+
+msgid "Sorry! Theres a server error."
+msgstr "Desculpe! Estamos com um problema no servidor."
 
 msgid "Search by address"
 msgstr "Busca por endereço"
