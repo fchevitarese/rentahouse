@@ -3,8 +3,9 @@ MAINTAINER Fred Chevitarese <fchevitarese@gmail.com>
 
 ENV PYTHONBUFFERED 1
 
-RUN mkdir /code && mkdir CACHE && mkdir media
+RUN mkdir /code
 WORKDIR /code
+RUN mkdir media && mkdir CACHE
 
 ADD requirements.txt /code/
 
